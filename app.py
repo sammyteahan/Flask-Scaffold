@@ -6,6 +6,16 @@ from flask import request, url_for, redirect
 ### Our apps name:
 app = Flask(__name__)
 
+# login_required decorator to ensure a user is logged in
+def login_required(test):
+	@wraps(test)
+	def wrap(*args, **kwargs):
+		if 'logged_in' in session:
+			return test(*args, **kwargs)
+		else:
+			return redirect (url_for('login'))
+	return wrap
+
 @app.route('/')
 def home():
 	return render_template('index.html')
