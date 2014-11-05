@@ -24,6 +24,13 @@ def home():
 def login():
 	return render_template('login.html')
 
+# For session based authentication
+@app.route('/logout')
+def logout():
+	session.pop('username', None)
+	session.pop('logged_in', None)
+	return redirect(url_for('login'))
+
 
 
 if __name__ == "__main__":
