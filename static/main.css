@@ -1,0 +1,63 @@
+* {
+  margin: 0;
+  -webkit-box-sizing: border-box;
+}
+header {
+  height: 250px;
+  width: 100%;
+  background-position: 0 500px;
+  background-attachment: fixed;
+  background-image: url('http://repo.openpandora.org/files/pnd/nyancat-app/01.png');
+  background-size: cover;
+  text-align: center;
+  line-height: 200px;
+}
+main {
+  margin-left: 15%;
+  height: 800px;
+  max-width: 1400px;
+}
+div {
+  height: 200px;
+  width: 300px;
+  background-color: #88dbdf;
+  margin: 10px;
+  display: inline-block;
+}
+.box-container {
+  position: relative;
+  padding: 0;
+}
+.box {
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  top: 35%;
+  left: 40%;
+  background-color: #fff;
+  font-size: 14px;
+  line-height: 40px;
+  text-align: center;
+  font-weight: 800;
+  transition: 2s ease;
+}
+.box:hover {
+  border-radius: 100%;
+  background-color: #000;
+}
+.left {
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  background-color: white;
+}
+.right {
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  background-color: white;
+  right: 0;
+}
+div:nth-child(odd) {
+  border: 1px solid black;
+}
