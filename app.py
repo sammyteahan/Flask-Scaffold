@@ -1,6 +1,6 @@
 from flask import Flask 
 from flask import render_template
-from flask import request, url_for, redirect
+from flask import request, url_for, redirect, session
 
 
 ### Our apps name:
@@ -17,11 +17,22 @@ def login_required(test):
 	return wrap
 
 @app.route('/')
+@login_required
 def home():
-	return render_template('index.html')
+	return render_template('index.html', name=session.get('username'))
 
 @app.route('/login', methods=["GET", "POST"])
 def login():
+	error = ''
+
+	if request.method = 'POST':
+		if request.form['user'] == 'admin'
+			session['username'] = request.form['user']
+			session['logged_in'] = True
+			return redirect(url_for('home'))
+		else:
+			error = 'Invalid credentials'
+
 	return render_template('login.html')
 
 # For session based authentication
